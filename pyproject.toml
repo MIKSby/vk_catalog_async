@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "vk_catalog_async"
+version = "0.1.0"
+description = "Grab all VK users ID"
+authors = ["Mikhail Klimovich <mikhail12klimovich@gmail.com>"]
+packages = [
+    { include = "srv/checkers/run_hooks.py" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+bs4 = "^0.0.1"
+httpx = "^0.13.3"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.782"
+pycodestyle = "^2.6.0"
+flake8 = "^3.8.3"
+pylint = "^2.5.3"
+safety = "^1.9.0"
+bandit = "^1.6.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry.scripts]
+init = "srv.checkers.run_hooks:install_git_hooks"
+lint = "srv.checkers.run_hooks:lint"
+pre_push = "srv.checkers.run_hooks:pre_push"
